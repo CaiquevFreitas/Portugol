@@ -1,10 +1,11 @@
 programa
 {
+	inclua biblioteca Matematica --> m
 		funcao inicio()
 	{
-		caracter op, final = 'S'
+		caracter op, final = 's'
 		real n1, n2, result
-		enquanto (final == 'S'){
+		enquanto (final == 's'){
 			escreva("Digite um número: ")
 			leia(n1)
 			escreva("Digite outro número: ")
@@ -16,33 +17,24 @@ programa
 			se (op== '+') {
 				escreva(result = n1 + n2)
 			}
-			se (op== '-') {
+			senao se (op== '-') {
 				escreva(result = n1 - n2)
 			}
-			se (op== '*') {
+			senao se (op== '*') {
 				escreva(result = n1 * n2)
 			}
-			se (op== '/') {
-				escreva(result = n1 / n2)
+			senao se (op== '/') {
+				result = n1 / n2
+				result = m.arredondar(result, 2)
+				escreva(result)
 			}
 			senao {
 				escreva("inválido")
 			}
-			escreva("\n\nVocê ainda quer utilizar a calculadora? S/N: ")
+			escreva("\n\nVocê ainda quer utilizar a calculadora? s/n: ")
 			leia(final)	
 			limpa()
 		}
 			
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 471; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
