@@ -6,7 +6,7 @@ programa{
 	funcao inicio(){
 		inteiro jogada 
 		cadeia jogador = "X", j
-		inteiro cont = 0
+		inteiro cont = 1
 		logico jogo = verdadeiro
 		
 		
@@ -17,20 +17,30 @@ programa{
 		escreva("       --|---|--\n")
 		escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
 		
-		enquanto (jogo){
+		escreva("Quem vai jogar primeiro? X ou O: ")
+		leia(j)
+		j = tx.caixa_alta(j)
+		enquanto( j != "X" e j != "O"){
 			escreva("Quem vai jogar? X ou O: ")
 			leia(j)
 			j = tx.caixa_alta(j)
-			enquanto( j != "X" e j != "O"){
-				escreva("Quem vai jogar? X ou O: ")
-				leia(j)
-				j = tx.caixa_alta(j)
-			}
+		}
+		enquanto (jogo){
 			se(j == "X"){
-				jogador = "X"
+				se(cont % 2 != 0){
+					jogador = "X" 
+				}
+				se(cont % 2 == 0){
+					jogador = "O" 
+				}
 			}
-			senao se(j == "O"){
-				jogador = "O"
+			se(j == "O"){
+				se(cont % 2 != 0){
+					jogador = "O" 
+				}
+				se(cont % 2 == 0){
+					jogador = "X" 
+				}
 			}
 			escreva("Escolha uma posição para jogar: ")
 			leia(jogada)
@@ -119,11 +129,6 @@ programa{
 					pare
 				}
 			cont++
-				se( cont == 9){
-					escreva("====== FIM DE JOGO ======\n")
-					escreva("Empate")
-					pare
-				}
 				se( ganhador(1,2) == 1){
 					escreva("====== FIM DE JOGO ======\n")
 					escreva("O jogdor \"X\" venceu")
@@ -132,6 +137,11 @@ programa{
 				se( ganhador(1,2) == 2){
 					escreva("====== FIM DE JOGO ======\n")
 					escreva("O jogdor \"O\" venceu")
+					pare
+				}
+				se( cont > 9){
+					escreva("====== FIM DE JOGO ======\n")
+					escreva("Empate")
 					pare
 				}
 		}
@@ -185,16 +195,3 @@ programa{
 				retorne 0
 	}
 }
-
-			
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 862; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
