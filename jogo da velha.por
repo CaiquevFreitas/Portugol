@@ -1,7 +1,7 @@
 programa{
 	inclua biblioteca Texto --> tx
 	cadeia jogo_da_velha[][] = {{"1","2","3"},{"4","5","6"},{"7","8","9"}}
-	inteiro l, c, ganhou
+	inteiro l, c
 	
 	funcao inicio(){
 		inteiro jogada 
@@ -9,13 +9,7 @@ programa{
 		inteiro cont = 1
 		logico jogo = verdadeiro
 		
-		
-		escreva("====== JOGO DA VELHA ======\n")
-		escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-		escreva("       --|---|--\n")
-		escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-		escreva("       --|---|--\n")
-		escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+		imprime()
 		
 		escreva("Quem vai jogar primeiro? X ou O: ")
 		leia(j)
@@ -30,7 +24,7 @@ programa{
 				se(cont % 2 != 0){
 					jogador = "X" 
 				}
-				se(cont % 2 == 0){
+				senao{
 					jogador = "O" 
 				}
 			}
@@ -38,94 +32,54 @@ programa{
 				se(cont % 2 != 0){
 					jogador = "O" 
 				}
-				se(cont % 2 == 0){
+				senao{
 					jogador = "X" 
 				}
 			}
 			escreva("Escolha uma posição para jogar: ")
 			leia(jogada)
+			veri_jog(jogada)
+			enquanto(veri_jog(1) == 1){
+				escreva("Escolha uma posição válida para jogar: ")
+				leia(jogada)
+			}
 			
 			escolha (jogada){
 				caso 1:
 					jogo_da_velha[0][0] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 2:
 					jogo_da_velha[0][1] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 3:
 					jogo_da_velha[0][2] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 4:
 					jogo_da_velha[1][0] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 5:
 					jogo_da_velha[1][1] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 6:
 					jogo_da_velha[1][2] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 7:
 					jogo_da_velha[2][0] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 8:
 					jogo_da_velha[2][1] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				caso 9:
 					jogo_da_velha[2][2] = jogador
-					escreva("====== JOGO DA VELHA ======\n")
-					escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
-					escreva("       --|---|--\n")
-					escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+					imprime()
 					pare
 				}
 			cont++
@@ -147,6 +101,24 @@ programa{
 		}
 		
 	}
+	funcao vazio imprime(){
+		escreva("====== JOGO DA VELHA ======\n")
+		escreva("       ",jogo_da_velha[0][0]," | ",jogo_da_velha[0][1]," |",jogo_da_velha[0][2],"\n")
+		escreva("       --|---|--\n")
+		escreva("       ",jogo_da_velha[1][0]," | ",jogo_da_velha[1][1]," |",jogo_da_velha[1][2],"\n")
+		escreva("       --|---|--\n")
+		escreva("       ",jogo_da_velha[2][0]," | ",jogo_da_velha[2][1]," |",jogo_da_velha[2][2],"\n")
+	}
+	
+	funcao inteiro veri_jog (inteiro jog){
+		se(jog != 1 e jog != 2 e jog != 3 e jog != 4 e jog != 5 e jog != 6 e jog != 7 e jog != 8 e jog != 9){
+			retorne 1
+		}
+		senao{
+			retorne 0
+		}
+	}
+	
 	funcao inteiro ganhador (inteiro jog1, inteiro jog2){
 				//ganhador por linhas
 				para(l = 0; l < 3; l++){
